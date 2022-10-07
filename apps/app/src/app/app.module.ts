@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import JsonResponseDeserializer from '../../../../libs/nestjs-kafka-client/src/lib/deserializer/json-response.deserializer';
 import { KafkaModule } from '../../../../libs/nestjs-kafka-client/src/lib/kafka.module';
 
 import { AppController } from './app.controller';
@@ -19,7 +18,6 @@ import { AppService } from './app.service';
         subscribe: {
           topics: ['hero'],
         },
-        deserializer: new JsonResponseDeserializer(),
       },
     ]),
   ],

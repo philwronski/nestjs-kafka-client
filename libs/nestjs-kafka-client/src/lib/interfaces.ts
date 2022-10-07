@@ -58,3 +58,9 @@ export type TopicsFunctionsMap = Map<
 >;
 
 export type TopicsMap = Map<string, (string | RegExp)[]>;
+
+export interface KafkaRequest<T = any> {
+  key: Buffer | string | null;
+  value: T;
+  headers: IHeaders;
+}

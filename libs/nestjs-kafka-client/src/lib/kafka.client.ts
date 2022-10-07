@@ -5,7 +5,6 @@ import {
   OnModuleInit,
 } from '@nestjs/common';
 import { Deserializer, KafkaLogger, Serializer } from '@nestjs/microservices';
-import { KafkaRequestSerializer } from '@nestjs/microservices/serializers';
 import {
   Admin,
   Consumer,
@@ -23,6 +22,7 @@ import {
   KafkaResponse,
   TopicsFunctionsMap,
 } from './interfaces';
+import KafkaRequestSerializer from './serializer/kafka-request.serializer';
 import { INSTANCE_BY_TOPIC, SUBSCRIBED_TOPICS } from './store';
 
 @Injectable()
