@@ -1,1 +1,1 @@
-export * from './lib/nestjs-kafka-client.module';
+export * from './lib/kafka.module';
