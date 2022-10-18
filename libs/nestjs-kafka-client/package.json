@@ -1,5 +1,5 @@
 {
-  "name": "@CleverCode/nestjs-kafka-client",
+  "name": "@clevercode/nestjs-kafka-client",
   "version": "0.0.1",
   "type": "commonjs"
 }
