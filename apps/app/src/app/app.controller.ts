@@ -26,27 +26,32 @@ export class AppController {
     return this.appService.getData();
   }
 
-  @EventPattern({ topics: ['hero'] })
-  getHero(data: Hero, context: KafkaResponse) {
-    this.logger.log(data, data.name, context);
+  @EventPattern({ topics: ['simple.hero'] })
+  getHero(data: string, context: KafkaResponse) {
+    this.logger.log(data, data, context);
   }
 
-  @Get('/hero')
+  @Get('/simple/hero')
   async publishHero() {
     await this.client.send({
-      topic: 'hero',
+      topic: 'simple.hero',
       messages: [{ value: 'Welcome Batman' }],
     });
   }
 
-  @Get('/heroobject')
+  @EventPattern({ topics: ['json.hero'] })
+  getJsonHero(data: Hero, context: KafkaResponse) {
+    this.logger.log(data, data.name, context);
+  }
+
+  @Get('/json/hero')
   async publishHeroObject() {
     const hero: Hero = {
       name: 'Batman',
       city: 'Gotham City',
     };
     await this.client.send({
-      topic: 'hero',
+      topic: 'json.hero',
       messages: [{ value: hero }],
     });
   }
